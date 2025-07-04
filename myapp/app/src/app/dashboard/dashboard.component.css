@@ -1,0 +1,103 @@
+/* Global font and reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background and layout */
+.page-container {
+  height: 100vh;
+  background: linear-gradient(to right, #8A2BE2, #FF69B4);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+/* Header with back and logout */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-btn,
+.logout-btn {
+  background: white;
+  border: none;
+  border-radius: 5px;
+  color: #8A2BE2;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 10px;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover,
+.logout-btn:hover {
+  background-color: #dcd6f7;
+}
+
+/* Welcome message */
+.customer-id {
+  font-weight: bold;
+  color: white;
+}
+
+/* Main title */
+.main-heading {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+  margin-top: 90px;
+  margin-bottom: 30px;
+}
+
+/* Central white box */
+.content-box {
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 30px;
+  width: 30%;
+  max-width: 30%;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Dashboard action buttons */
+.dashboard-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.dashboard-options button {
+  background-color: #8A2BE2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.dashboard-options button:hover {
+  transform: scale(1.05);
+  background-color: #a35de2;
+}

@@ -1,0 +1,101 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.page-container {
+  height: 100vh;
+  background: linear-gradient(to right, #006400, #90EE90);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-btn,
+.logout-btn {
+  background: white;
+  border: none;
+  border-radius: 5px;
+  color: #006400;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 10px;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover,
+.logout-btn:hover {
+  background-color: #cce5cc;
+}
+
+.vendor-id {
+  font-weight: bold;
+  color: white;
+}
+
+.main-heading {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-top: 90px;
+  margin-bottom: 30px;
+}
+
+.content-box-table {
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 14px;
+}
+
+thead th {
+  background-color: #006400;
+  color: white;
+  padding: 10px;
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.no-data {
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+}

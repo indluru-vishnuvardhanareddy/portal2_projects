@@ -1,0 +1,96 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Page layout with gradient background */
+.page-container {
+  height: 100vh;
+  background: linear-gradient(to right, #8A2BE2, #FF69B4);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+/* Header section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Buttons */
+.back-btn,
+.logout-btn {
+  background: white;
+  border: none;
+  border-radius: 5px;
+  color: #8A2BE2;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 10px;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover,
+.logout-btn:hover {
+  background-color: #dcd6f7;
+}
+
+/* Customer ID */
+.customer-id {
+  font-weight: bold;
+  color: white;
+}
+
+/* Title */
+.main-heading {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-top: 90px;
+  margin-bottom: 30px;
+}
+
+/* Profile details container */
+.content-box {
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 30px;
+  width: 20%;
+  max-width: 20%;
+  text-align: left;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Each field in profile */
+.content-box p {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.content-box p strong {
+  color: #8A2BE2;
+}
+
+/* Fallback */
+.no-data {
+  font-size: 18px;
+  text-align: center;
+  color: #fff;
+  margin-top: 50px;
+}

@@ -1,0 +1,52 @@
+<div class="login-page">
+  <div class="login-container">
+
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <img src="https://vendor.ecomexpress.in/EcomPortal/dist/img/vendorPortal.jpg" alt="Vendor Portal Welcome" />
+      <h2>🙋‍♂️ Welcome Back! 🙋‍♂️</h2>
+      <p>Access your personalized vendor dashboard</p>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <h2>👤 Vendor Login</h2>
+
+      <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+        <div class="form-group">
+          <label for="vendorId">🪪 Vendor ID</label>
+          <input 
+            type="text" 
+            id="vendorId"
+            name="vendorId"
+            [(ngModel)]="vendorId"
+            required
+            placeholder="Enter your Vendor ID">
+        </div>
+
+        <div class="form-group">
+          <label for="password">🔒 Password</label>
+          <input 
+            type="password" 
+            id="password"
+            name="password"
+            [(ngModel)]="password"
+            required
+            placeholder="Enter your password">
+        </div>
+
+        <div *ngIf="errorMessage" class="error-msg">
+          {{ errorMessage }}
+        </div>
+
+        <button 
+          type="submit" 
+          [disabled]="!loginForm.form.valid || isLoading">
+          <span *ngIf="!isLoading">Login</span>
+          <span *ngIf="isLoading">Logging in...</span>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</div>

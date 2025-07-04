@@ -1,0 +1,23 @@
+<div class="page-container">
+  <div class="header">
+    <button class="back-btn" (click)="goBack()">Back</button>
+    <div class="header-right">
+      <div class="customer-id">Vendor ID: {{ vendorId }}</div>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <h1 class="main-heading">🏭 VENDOR DASHBOARD</h1>
+
+  <div class="content-box">
+    <p>Welcome to your Vendor Portal</p>
+    <p>Last login: {{ loginTime | date: 'medium' }}</p>
+
+    <div class="dashboard-options">
+      <button (click)="goToProfile()">👤 Profile</button>
+      <button (click)="goToProcurement()">📦 Procurement Process</button>
+      <button (click)="goToFinance()">💰 Finance Summary</button>
+
+    </div>
+  </div>
+</div>

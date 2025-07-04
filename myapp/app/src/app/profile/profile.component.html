@@ -1,0 +1,31 @@
+<div class="page-container" *ngIf="profile">
+  <!-- Header with Back and Logout -->
+  <div class="header">
+    <button class="back-btn" (click)="goBack()"> Back</button>
+    <div class="header-right">
+      <div class="vendor-id">Vendor ID: {{ profile.lifnr }}</div>
+      <button class="logout-btn" (click)="logout()"> Logout</button>
+    </div>
+  </div>
+
+  <!-- Main Title -->
+  <h1 class="main-heading">👤 Vendor Profile</h1>
+
+  <!-- Profile Content -->
+  <div class="content-box">
+    <p><strong>Name:</strong> {{ profile.name1 }}</p>
+    <p><strong>Vendor ID:</strong> {{ profile.lifnr }}</p>
+    <p><strong>City:</strong> {{ profile.ort01 }}</p>
+    <p><strong>Country:</strong> {{ profile.land1 }}</p>
+    <p><strong>Company Code:</strong> {{ profile.bukrs }}</p>
+    <p><strong>Created By:</strong> {{ profile.ernam }}</p>
+    <p><strong>Account Number:</strong> {{ profile.akont }}</p>
+    <p><strong>Purchasing Org:</strong> Kaar Tech</p>
+    <p><strong>Postal Code:</strong> {{ profile.pstlz }}</p>
+  </div>
+</div>
+
+<!-- Fallback for No Profile -->
+<div class="no-data" *ngIf="!profile">
+  No vendor profile data available.
+</div>

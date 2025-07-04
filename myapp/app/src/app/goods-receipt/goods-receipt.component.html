@@ -1,0 +1,86 @@
+<div class="page-container">
+  <div class="header">
+    <button class="back-btn" (click)="goBack()">Back</button>
+    <div class="header-right">
+      <div class="vendor-id">Vendor ID: {{ vendorId }}</div>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <h1 class="main-heading">📥 Goods Receipt</h1>
+
+  <ng-container *ngIf="!noData; else noDataTemplate">
+    <div class="content-box-table">
+      <button (click)="clearFilters()">Clear Filters</button>
+  <table>
+  <thead>
+    <!-- Filter Row -->
+    <tr>
+      <th><input [(ngModel)]="filters.mblnr" placeholder="GR No" /></th>
+      <th><input [(ngModel)]="filters.budat" placeholder="Posting Date" /></th>
+      <th><input [(ngModel)]="filters.bldat" placeholder="Document Date" /></th>
+      <th><input [(ngModel)]="filters.usnam" placeholder="User" /></th>
+
+      <th><input [(ngModel)]="filters.lifnr" placeholder="Vendor" /></th>
+      <th><input [(ngModel)]="filters.ebeln" placeholder="PO No" /></th>
+      <th><input [(ngModel)]="filters.ebelp" placeholder="PO Item" /></th>
+
+      <th><input [(ngModel)]="filters.zeile" placeholder="Item" /></th>
+      <th><input [(ngModel)]="filters.matnr" placeholder="Material" /></th>
+      <th><input [(ngModel)]="filters.werks" placeholder="Plant" /></th>
+      <th><input [(ngModel)]="filters.bwart" placeholder="Movement" /></th>
+
+      <th><input [(ngModel)]="filters.menge" placeholder="Qty" /></th>
+      <th><input [(ngModel)]="filters.meins" placeholder="Unit" /></th>
+    </tr>
+
+    <!-- Table Headers -->
+    <tr>
+      <th>GR No</th>
+      <th>Posting Date</th>
+      <th>Document Date</th>
+      <th>User</th>
+
+      <th>Vendor</th>
+      <th>PO No</th>
+      <th>PO Item</th>
+
+      <th>Item</th>
+      <th>Material</th>
+      <th>Plant</th>
+      <th>Movement</th>
+
+      <th>Quantity</th>
+      <th>Unit</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let gr of filteredData">
+      <td>{{ gr.mblnr }}</td>
+      <td>{{ gr.budat | date: 'dd-MM-yyyy' }}</td>
+      <td>{{ gr.bldat | date: 'dd-MM-yyyy' }}</td>
+      <td>{{ gr.usnam }}</td>
+
+      <td>{{ gr.lifnr }}</td>
+      <td>{{ gr.ebeln }}</td>
+      <td>{{ gr.ebelp }}</td>
+
+      <td>{{ gr.zeile }}</td>
+      <td>{{ gr.matnr }}</td>
+      <td>{{ gr.werks }}</td>
+      <td>{{ gr.bwart }}</td>
+
+      <td>{{ gr.menge }}</td>
+      <td>{{ gr.meins }}</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </ng-container>
+
+  <ng-template #noDataTemplate>
+    <p class="no-data">🚫 No Goods Receipt data available for Vendor ID: {{ vendorId }}</p>
+  </ng-template>
+</div>

@@ -1,0 +1,75 @@
+<div class="page-container" *ngIf="rfqData.length > 0; else noData">
+  <!-- Header -->
+  <div class="header">
+    <button class="back-btn" (click)="goBack()">Back</button>
+    <div class="header-right">
+      <div class="vendor-id">Vendor ID: {{ vendorId }}</div>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- Title -->
+  <h1 class="main-heading">📋 Request for Quotation</h1>
+
+  <!-- RFQ Table -->
+  <div class="content-box-table">
+    <button (click)="clearFilters()">Clear Filters</button>
+  <table>
+  <thead>
+    <tr>
+      <th><input [(ngModel)]="filters.ebeln" placeholder="RFQ No" /></th>
+      <th><input [(ngModel)]="filters.bedat" placeholder="Doc Date" /></th>
+      <th><input [(ngModel)]="filters.bsart" placeholder="Type" /></th>
+      <th><input [(ngModel)]="filters.ekorg" placeholder="Org" /></th>
+
+      <th><input [(ngModel)]="filters.lifnr" placeholder="Vendor" /></th>
+
+      <th><input [(ngModel)]="filters.matnr" placeholder="Material" /></th>
+      <th><input [(ngModel)]="filters.menge" placeholder="Qty" /></th>
+      <th><input [(ngModel)]="filters.meins" placeholder="Unit" /></th>
+      <th><input [(ngModel)]="filters.netpr" placeholder="Price" /></th>
+
+      <th><input [(ngModel)]="filters.eindt" placeholder="Delivery Date" /></th>
+    </tr>
+    <tr>
+      <th>RFQ No</th>
+      <th>Doc Date</th>
+      <th>Type</th>
+      <th>Org</th>
+
+      <th>Vendor</th>
+
+      <th>Material</th>
+      <th>Qty</th>
+      <th>Unit</th>
+      <th>Price</th>
+
+      <th>Delivery Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rfq of filteredData">
+      <td>{{ rfq.ebeln }}</td>
+      <td>{{ rfq.bedat | date: 'dd-MM-yyyy' }}</td>
+      <td>{{ rfq.bsart }}</td>
+      <td>{{ rfq.ekorg }}</td>
+
+      <td>{{ rfq.lifnr }}</td>
+
+      <td>{{ rfq.matnr }}</td>
+      <td>{{ rfq.menge }}</td>
+      <td>{{ rfq.meins }}</td>
+      <td>{{ rfq.netpr | currency: 'USD' }}</td>
+
+      <td>{{ rfq.eindt | date: 'dd-MM-yyyy' }}</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+<!-- Fallback -->
+<ng-template #noData>
+  <p class="no-data">No RFQ data available for this vendor.</p>
+</ng-template>

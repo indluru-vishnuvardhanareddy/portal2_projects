@@ -1,0 +1,91 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.page-container {
+  height: 100vh;
+  background: linear-gradient(to right, #8A2BE2, #FF69B4); /* Violet to pink */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  height: 100px;
+  flex-grow: 1;
+  text-align: center;
+  margin: 190px 0 0 0;
+}
+
+.back-btn,
+.logout-btn {
+  background: white;
+  border: none;
+  border-radius: 5px;
+  color: #8A2BE2;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 3px 10px;
+  margin-top: -250px;
+}
+
+.right-header {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.customer-id {
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 3px 10px;
+  margin-top: -250px;
+}
+
+.content-box {
+  background-color: #fff;
+  margin: -45px auto 0 auto;
+  border-radius: 15px;
+  padding: 30px;
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.button-row button {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: white;
+  background: linear-gradient(135deg, #6EC1E4, #FF69B4);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.button-row button:hover {
+  background: linear-gradient(135deg, #5ca8c7, #ff5aa6);
+}

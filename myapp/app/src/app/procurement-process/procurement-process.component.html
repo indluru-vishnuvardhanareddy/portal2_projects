@@ -1,0 +1,18 @@
+<div class="page-container">
+  <div class="header">
+    <button class="back-btn" (click)="back()">← Back</button>
+    <h1>📦 PROCUREMENT PROCESS</h1>
+    <div class="right-header">
+      <span class="customer-id">{{ customerId }}</span>
+      <button class="logout-btn" (click)="logout()">⎋ Logout</button>
+    </div>
+  </div>
+
+  <div class="content-box">
+    <div class="button-row">
+      <button (click)="navigateTo('request-for-quotation')">📄 Request for Quotation</button>
+      <button (click)="navigateTo('purchase-order')">🧾 Purchase Order</button>
+      <button (click)="navigateTo('goods-receipt')">📦 Goods Receipt</button>
+    </div>
+  </div>
+</div>

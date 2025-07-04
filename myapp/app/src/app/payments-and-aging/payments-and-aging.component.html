@@ -1,0 +1,93 @@
+<div class="page-container" *ngIf="!noData && paymentData.length > 0; else noDataTemplate">
+  <div class="header">
+    <button class="back-btn" (click)="goBack()">Back</button>
+    <div class="header-right">
+      <div class="vendor-id">Vendor ID: {{ vendorId }}</div>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <h1 class="main-heading">💸 Payments and Aging</h1>
+
+  <div class="content-box-table">
+    <button (click)="clearFilters()">Clear Filters</button>
+
+    <table>
+  <thead>
+    <!-- Filter Row -->
+    <tr>
+      <th><input [(ngModel)]="filters.belnr" placeholder="Document No" /></th>
+      <th><input [(ngModel)]="filters.blart" placeholder="Type" /></th>
+      <th><input [(ngModel)]="filters.bldat" placeholder="Doc Date" /></th>
+      <th><input [(ngModel)]="filters.budat" placeholder="Post Date" /></th>
+      <th><input [(ngModel)]="filters.gjahr" placeholder="Year" /></th>
+      <th><input [(ngModel)]="filters.buzei" placeholder="Item" /></th>
+      <th><input [(ngModel)]="filters.rebzg" placeholder="Ref Doc" /></th>
+      <th><input [(ngModel)]="filters.usnam" placeholder="User" /></th>
+
+      <th><input [(ngModel)]="filters.bukrs" placeholder="Company" /></th>
+      <th><input [(ngModel)]="filters.wrbtr" placeholder="Amount" /></th>
+      <th><input [(ngModel)]="filters.waers" placeholder="Currency" /></th>
+      <th><input [(ngModel)]="filters.zterm" placeholder="Term" /></th>
+      <th><input [(ngModel)]="filters.augbl" placeholder="Clearing Doc" /></th>
+      <th><input [(ngModel)]="filters.aging" placeholder="Aging" /></th>
+    </tr>
+
+    <!-- Column Header Row -->
+    <tr>
+      <th>Document No</th>
+      <th>Type</th>
+      <th>Doc Date</th>
+      <th>Post Date</th>
+      <th>Year</th>
+      <th>Item</th>
+      <th>Ref Doc</th>
+      <th>User</th>
+
+      <th>Company</th>
+      <th>Amount</th>
+      <th>Currency</th>
+      <th>Term</th>
+      <th>Clearing Doc</th>
+      <th>Aging</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let pay of filteredData">
+      <td>{{ pay.belnr }}</td>
+      <td>{{ pay.blart }}</td>
+      <td>{{ pay.bldat }}</td>
+      <td>{{ pay.budat }}</td>
+      <td>{{ pay.gjahr }}</td>
+      <td>{{ pay.buzei }}</td>
+      <td>4500000001</td>
+      <td>{{ pay.usnam }}</td>
+
+      <td>{{ pay.bukrs }}</td>
+      <td>{{ pay.wrbtr }}</td>
+      <td>{{ pay.waers }}</td>
+      <td>Z001</td>
+      <td>5000000002</td>
+      <td>{{ pay.aging }}</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+<ng-template #noDataTemplate>
+  <div class="page-container">
+    <div class="header">
+      <button class="back-btn" (click)="goBack()">Back</button>
+      <div class="header-right">
+        <div class="vendor-id">Vendor ID: {{ vendorId }}</div>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+      </div>
+    </div>
+
+    <h1 class="main-heading">💸 Payments and Aging</h1>
+    <p class="no-data">No payment or aging data available for this vendor.</p>
+  </div>
+</ng-template>

@@ -1,0 +1,91 @@
+<div class="page-container" *ngIf="!noData && invoiceData.length > 0; else noDataTemplate">
+  <!-- Your table and header here -->
+  <div class="header">
+    <button class="back-btn" (click)="goBack()">Back</button>
+    <div class="header-right">
+      <div class="vendor-id">Vendor ID: {{ vendorId }}</div>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <h1 class="main-heading">🧾 Vendor Invoices</h1>
+
+  <div class="content-box-table">
+    <button (click)="clearFilters()">Clear Filters</button>
+
+    <table>
+  <thead>
+    <!-- Filter Row -->
+    <tr>
+      <th><input [(ngModel)]="filters.belnr" placeholder="Invoice No" /></th>
+      <th><input [(ngModel)]="filters.bldat" placeholder="Doc Date" /></th>
+      <th><input [(ngModel)]="filters.bukrs" placeholder="Company" /></th>
+      <th><input [(ngModel)]="filters.lifnr" placeholder="Vendor" /></th>
+
+      <th><input [(ngModel)]="filters.ebeln" placeholder="PO No" /></th>
+      <th><input [(ngModel)]="filters.matnr" placeholder="Material" /></th>
+      <th><input [(ngModel)]="filters.eindt" placeholder="Delivery Date" /></th>
+
+      <th><input [(ngModel)]="filters.menge" placeholder="Qty" /></th>
+      <th><input [(ngModel)]="filters.meins" placeholder="Unit" /></th>
+      
+      <th></th>
+    </tr>
+
+    <!-- Column Headers -->
+    <tr>
+      <th>Invoice No</th>
+      <th>Doc Date</th>
+      <th>Company</th>
+      <th>Vendor</th>
+
+      <th>PO No</th>
+      <th>Material</th>
+      <th>Delivery Date</th>
+
+      <th>Qty</th>
+      <th>Unit</th>
+      
+      <th>PDF</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let invoice of filteredData">
+      <td>{{ invoice.belnr }}</td>
+      <td>{{ invoice.bldat }}</td>
+      <td>{{ invoice.bukrs }}</td>
+      <td>{{ invoice.lifnr }}</td>
+
+      <td>{{ invoice.ebeln }}</td>
+      <td>{{ invoice.matnr }}</td>
+      <td>{{ invoice.eindt }}</td>
+
+      <td>{{ invoice.menge }}</td>
+      <td>{{ invoice.meins }}</td>
+      
+
+      <td>
+        <button (click)="downloadPDF(invoice.belnr)">Download PDF</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+<ng-template #noDataTemplate>
+  <div class="page-container">
+    <div class="header">
+      <button class="back-btn" (click)="goBack()">Back</button>
+      <div class="header-right">
+        <div class="vendor-id">Vendor ID: {{ vendorId }}</div>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+      </div>
+    </div>
+
+    <h1 class="main-heading">🧾 Vendor Invoices</h1>
+    <p class="no-data">No Invoice data available for this vendor.</p>
+  </div>
+</ng-template>

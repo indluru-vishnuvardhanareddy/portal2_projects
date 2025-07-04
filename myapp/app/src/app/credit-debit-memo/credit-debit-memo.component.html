@@ -1,0 +1,95 @@
+<div class="page-container" *ngIf="!noData && memoData.length > 0; else noDataTemplate">
+  <div class="header">
+    <button class="back-btn" (click)="goBack()">Back</button>
+    <div class="header-right">
+      <div class="vendor-id">Vendor ID: {{ vendorId }}</div>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <h1 class="main-heading">💳 Credit / Debit Memo</h1>
+
+  <div class="content-box-table">
+    <button (click)="clearFilters()">Clear Filters</button>
+    <table>
+  <thead>
+    <tr>
+      <!-- Filter Inputs -->
+      <th><input [(ngModel)]="filters.belnr" placeholder="Document No" /></th>
+      <th><input [(ngModel)]="filters.blart" placeholder="Type" /></th>
+      <th><input [(ngModel)]="filters.bldat" placeholder="Doc Date" /></th>
+      <th><input [(ngModel)]="filters.budat" placeholder="Post Date" /></th>
+      <th><input [(ngModel)]="filters.gjahr" placeholder="Year" /></th>
+      <th><input [(ngModel)]="filters.buzei" placeholder="Item" /></th>
+      
+      <th><input [(ngModel)]="filters.shkzg" placeholder="DR/CR" /></th>
+      <th><input [(ngModel)]="filters.wrbtr" placeholder="Amount" /></th>
+      <th><input [(ngModel)]="filters.waers" placeholder="Currency" /></th>
+
+      <th><input [(ngModel)]="filters.ebeln" placeholder="PO No" /></th>
+      <th><input [(ngModel)]="filters.matnr" placeholder="Material" /></th>
+      <th><input [(ngModel)]="filters.bukrs" placeholder="Company" /></th>
+      <th><input [(ngModel)]="filters.usnam" placeholder="User" /></th>
+      <th><input disabled value="2025-09-12" /></th>
+    </tr>
+
+    <!-- Column Headings -->
+    <tr>
+      <th>Document No</th>
+      <th>Type</th>
+      <th>Doc Date</th>
+      <th>Post Date</th>
+      <th>Year</th>
+      <th>Item</th>
+
+      <th>DR/CR</th>
+      <th>Amount</th>
+      <th>Currency</th>
+
+      <th>PO No</th>
+      <th>Material</th>
+      <th>Company</th>
+      <th>User</th>
+      <th>Clearing Doc</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let memo of filteredData">
+      <td>{{ memo.belnr }}</td>
+      <td>{{ memo.blart }}</td>
+      <td>{{ memo.bldat }}</td>
+      <td>{{ memo.budat }}</td>
+      <td>{{ memo.gjahr }}</td>
+      <td>{{ memo.buzei }}</td>
+
+      <td>{{ memo.shkzg === 'S' ? 'Debit' : memo.shkzg === 'H' ? 'Credit' : memo.shkzg }}</td>
+      <td>{{ memo.wrbtr }}</td>
+      <td>{{ memo.waers }}</td>
+
+      <td>{{ memo.ebeln }}</td>
+      <td>{{ memo.matnr }}</td>
+      <td>{{ memo.bukrs }}</td>
+      <td>{{ memo.usnam }}</td>
+      <td>2025-09-12</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+<ng-template #noDataTemplate>
+  <div class="page-container">
+    <div class="header">
+      <button class="back-btn" (click)="goBack()">Back</button>
+      <div class="header-right">
+        <div class="vendor-id">Vendor ID: {{ vendorId }}</div>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+      </div>
+    </div>
+
+    <h1 class="main-heading">💳 Credit / Debit Memos</h1>
+    <p class="no-data">No memo data available for this vendor.</p>
+  </div>
+</ng-template>
